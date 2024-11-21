@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Trajan';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/trajan.woff') format('woff');
+}
+
+body {
+  background: linear-gradient(#d8694e, #422014);
+  font-family: 'Trajan', sans-serif;
+  color: white;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  min-width: 0;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+article {
+  width: max-content;
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+article,
+article > img {
+  border-radius: 5px;
+}
