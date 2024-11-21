@@ -1,7 +1,7 @@
 export default function Card({ title, image }) {
   return (
     <>
-      <p>{title}</p>
+      <h2>{title}</h2>
       <img
         src={image}
         alt={'Character ' + title}
