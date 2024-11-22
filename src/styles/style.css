@@ -2,7 +2,7 @@
   font-family: 'Trajan';
   font-style: normal;
   font-weight: normal;
-  src: url('../assets/trajan.woff') format('woff');
+  src: url('../assets/trajan.woff2') format('woff2');
 }
 
 body {
@@ -71,11 +71,6 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-h1,
-header p {
-  transform: translateY(8px);
 }
 
 header p {
