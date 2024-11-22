@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import getData from '../utils/fetch';
-import shuffle from '../utils/random';
+import shuffle from '../utils/shuffleArray';
 import Card from './Card';
 import logo from '../assets/dota2.png';
 
