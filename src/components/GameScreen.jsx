@@ -15,8 +15,12 @@ export default function Main() {
     const fetchData = async () => {
       try {
         const characters = await getData();
+        shuffle(characters);
         setData(characters);
-        setStatus('Loaded');
+
+        setTimeout(() => {
+          setStatus('Loaded');
+        }, '500');
       } catch {
         setStatus('Error');
       }
@@ -79,19 +83,21 @@ export default function Main() {
         )}
       </header>
       <main>
-        <div className="cards-wrapper">
-          {data.map((character) => (
-            <article
-              key={character.id}
-              onClick={() => handleClick(character.id)}
-            >
-              <Card
-                title={character.name}
-                image={character.image}
-              />
-            </article>
-          ))}
-        </div>
+        {status === 'Loaded' && (
+          <div className="cards-wrapper">
+            {data.map((character) => (
+              <article
+                key={character.id}
+                onClick={() => handleClick(character.id)}
+              >
+                <Card
+                  title={character.name}
+                  image={character.image}
+                />
+              </article>
+            ))}
+          </div>
+        )}
       </main>
     </>
   );
