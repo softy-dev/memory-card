@@ -5,6 +5,7 @@ import logo from '../assets/dota2.png';
 import CardsWrapper from './CardsWrapper';
 import ScoreTracker from './ScoreTracker';
 import HelpPanel from './HelpPanel';
+import Endgame from './Endgame';
 
 export default function Main() {
   const [status, setStatus] = useState('Loading');
@@ -34,6 +35,7 @@ export default function Main() {
   function handleClick(id) {
     const newData = [...data];
     shuffle(newData);
+    setData(newData);
 
     if (clickedCharacters.includes(id)) {
       setScore(0);
@@ -41,15 +43,18 @@ export default function Main() {
     } else {
       const newCharacter = [...clickedCharacters, id];
       const newScore = score + 1;
-      setScore(newScore);
-      setClickedCharacters(newCharacter);
 
-      if (newScore > bestScore) {
-        setBestScore(newScore);
+      if (newScore === 12) {
+        setStatus('Clear');
+      } else {
+        setScore(newScore);
+        setClickedCharacters(newCharacter);
+
+        if (newScore > bestScore) {
+          setBestScore(newScore);
+        }
       }
     }
-
-    setData(newData);
   }
 
   function toggleHelp() {
@@ -58,6 +63,13 @@ export default function Main() {
     } else {
       setStatus('Loaded');
     }
+  }
+
+  function resetGame() {
+    setScore(0);
+    setBestScore(0);
+    setClickedCharacters([]);
+    setStatus('Loaded');
   }
 
   return (
@@ -107,6 +119,7 @@ export default function Main() {
           />
         )}
         {status === 'Help' && <HelpPanel toggleHelp={toggleHelp} />}
+        {status === 'Clear' && <Endgame resetGame={resetGame} />}
       </main>
     </>
   );

@@ -23,6 +23,7 @@ export default function HelpPanel({ toggleHelp }) {
       <div>
         <button
           type="button"
+          className="action-btn"
           onClick={toggleHelp}
         >
           {"Got it. I'm ready!"}

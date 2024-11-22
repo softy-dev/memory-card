@@ -49,7 +49,7 @@ main {
 .card:hover,
 .card:active,
 .card:focus-visible {
-  filter: brightness(120%);
+  filter: brightness(115%);
   box-shadow: 0 0 27px -10px rgb(255, 240, 155);
 }
 
@@ -118,12 +118,16 @@ header p {
   filter: brightness(80%);
 }
 
-.help-wrapper {
+.help-wrapper,
+.endgame-wrapper {
   max-width: 1000px;
   margin: 20px;
-  background-color: rgba(0, 0, 0, 0.9);
   padding: 20px;
   border-radius: 10px;
+}
+
+.help-wrapper {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .help-wrapper > ul {
@@ -132,7 +136,8 @@ header p {
   padding: 0;
 }
 
-.help-wrapper > h2 {
+.help-wrapper > h2,
+.endgame-wrapper > h2 {
   font-size: 4rem;
 }
 
@@ -143,13 +148,14 @@ header p {
   font-size: 2.5rem;
 }
 
-.help-wrapper button {
+.action-btn {
   background-color: #f34f2d;
+  font-weight: bold;
 }
 
-.help-wrapper button:hover,
-.help-wrapper button:active,
-.help-wrapper button:focus-visible {
+.action-btn:hover,
+.action-btn:active,
+.action-btn:focus-visible {
   background-color: #d34124;
 }
 
@@ -164,4 +170,31 @@ button {
 
 button:focus-visible {
   outline: 2px solid rgb(255, 153, 0);
+}
+
+.endgame-wrapper {
+  background-color: #3f3d3f;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  filter: brightness(120%);
+}
+
+.endgame-wrapper h2 {
+  margin-bottom: 20px;
+}
+
+.endgame-wrapper .golden {
+  font-style: italic;
+}
+
+.endgame-wrapper p {
+  font-size: 2rem;
+}
+
+.endgame-wrapper button {
+  font-size: 3rem;
+  padding: 20px;
 }
