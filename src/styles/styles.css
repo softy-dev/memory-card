@@ -9,6 +9,7 @@ body {
   background: linear-gradient(#d8694e, #422014);
   font-family: 'Trajan', sans-serif;
   color: white;
+  min-width: 430px;
 }
 
 #root {
@@ -59,10 +60,11 @@ h2 {
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
-  padding: 10px;
+  padding: 10px 18px 10px 10px;
+  gap: 20px;
 }
 
 .logo-wrapper {
@@ -71,6 +73,19 @@ header {
   gap: 10px;
 }
 
-h1 {
+h1,
+header p {
   transform: translateY(8px);
+}
+
+header p {
+  white-space: nowrap;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.golden {
+  color: gold;
 }

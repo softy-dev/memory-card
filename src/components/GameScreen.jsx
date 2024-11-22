@@ -7,6 +7,9 @@ import logo from '../assets/dota2.png';
 export default function Main() {
   const [status, setStatus] = useState('Loading');
   const [data, setData] = useState([]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [clickedCharacters, setClickedCharacters] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +25,24 @@ export default function Main() {
     fetchData();
   }, []);
 
-  function handleClick() {
+  function handleClick(id) {
     const newData = [...data];
     shuffle(newData);
+
+    if (clickedCharacters.includes(id)) {
+      setScore(0);
+      setClickedCharacters([]);
+    } else {
+      const newCharacter = [...clickedCharacters, id];
+      const newScore = score + 1;
+      setScore(newScore);
+      setClickedCharacters(newCharacter);
+
+      if (newScore > bestScore) {
+        setBestScore(newScore);
+      }
+    }
+
     setData(newData);
   }
 
@@ -48,13 +66,24 @@ export default function Main() {
           ></img>
           <h1>DOTA 2 Memory Cards</h1>
         </div>
+        {status === 'Loaded' && (
+          <div className="score-wrapper">
+            <p>
+              <span className="bold">Best Score:</span>
+              <span className="golden"> {bestScore}</span>
+            </p>
+            <p>
+              <span className="bold">Score:</span> {score}/12
+            </p>
+          </div>
+        )}
       </header>
       <main>
         <div className="cards-wrapper">
           {data.map((character) => (
             <article
               key={character.id}
-              onClick={handleClick}
+              onClick={() => handleClick(character.id)}
             >
               <Card
                 title={character.name}
