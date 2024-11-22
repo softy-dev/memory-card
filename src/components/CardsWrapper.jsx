@@ -2,18 +2,23 @@ import Card from './Card';
 
 export default function CardsWrapper({ data, handleClick }) {
   return (
-    <div className="cards-wrapper">
+    <ul className="cards-wrapper">
       {data.map((character) => (
-        <article
+        <li
           key={character.id}
           onClick={() => handleClick(character.id)}
         >
-          <Card
-            title={character.name}
-            image={character.image}
-          />
-        </article>
+          <button
+            className="card"
+            type="button"
+          >
+            <Card
+              title={character.name}
+              image={character.image}
+            />
+          </button>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

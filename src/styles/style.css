@@ -36,20 +36,29 @@ main {
   gap: 20px;
 }
 
-article {
+.card {
   width: max-content;
   background-color: rgb(0, 0, 0, 0.7);
   padding: 10px;
   cursor: pointer;
   font-weight: bold;
+  color: white;
+  text-align: left;
 }
 
-article,
-article > img {
+.card:hover,
+.card:active,
+.card:focus-visible {
+  filter: brightness(120%);
+  box-shadow: 0 0 27px -10px rgb(255, 240, 155);
+}
+
+.card,
+.card > img {
   border-radius: 5px;
 }
 
-article > img {
+.card > img {
   border: 2px solid rgb(128, 128, 128);
   margin-top: 5px;
 }
@@ -101,6 +110,12 @@ header p {
   width: 25px;
   height: 25px;
   border: none;
+}
+
+.help-btn:hover,
+.help-btn:active,
+.help-btn:focus-visible {
+  filter: brightness(80%);
 }
 
 .help-wrapper {
