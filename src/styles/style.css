@@ -51,6 +51,7 @@ article > img {
 
 article > img {
   border: 2px solid rgb(128, 128, 128);
+  margin-top: 5px;
 }
 
 h2 {
@@ -82,9 +83,70 @@ header p {
 }
 
 .golden {
-  color: gold;
+  color: rgb(255, 215, 0);
 }
 
-.error {
+.point {
+  color: #f34f2d;
+}
+
+.error,
+.loading {
   font-size: 3rem;
+}
+
+.help-btn {
+  background: url('../assets/help.svg') no-repeat center / cover;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+
+.help-wrapper {
+  max-width: 1000px;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.help-wrapper > ul {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.help-wrapper > h2 {
+  font-size: 4rem;
+}
+
+.help-wrapper > div {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 2.5rem;
+}
+
+.help-wrapper button {
+  background-color: #f34f2d;
+}
+
+.help-wrapper button:hover,
+.help-wrapper button:active,
+.help-wrapper button:focus-visible {
+  background-color: #d34124;
+}
+
+button {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  padding: 10px;
+}
+
+button:focus-visible {
+  outline: 2px solid rgb(255, 153, 0);
 }

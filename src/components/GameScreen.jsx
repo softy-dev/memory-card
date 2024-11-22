@@ -4,6 +4,7 @@ import shuffle from '../utils/shuffleArray';
 import logo from '../assets/dota2.png';
 import CardsWrapper from './CardsWrapper';
 import ScoreTracker from './ScoreTracker';
+import HelpPanel from './HelpPanel';
 
 export default function Main() {
   const [status, setStatus] = useState('Loading');
@@ -51,6 +52,14 @@ export default function Main() {
     setData(newData);
   }
 
+  function toggleHelp() {
+    if (status === 'Loaded') {
+      setStatus('Help');
+    } else {
+      setStatus('Loaded');
+    }
+  }
+
   return (
     <>
       <header>
@@ -62,6 +71,14 @@ export default function Main() {
             width="100"
           ></img>
           <h1>DOTA 2 Memory Cards</h1>
+          {status === 'Loaded' && (
+            <button
+              className="help-btn"
+              type="button"
+              onClick={toggleHelp}
+              aria-label="View game's instructions"
+            ></button>
+          )}
         </div>
         {status === 'Loaded' && (
           <ScoreTracker
@@ -71,6 +88,11 @@ export default function Main() {
         )}
       </header>
       <main>
+        {status === 'Loading' && (
+          <div className="loading">
+            <p>Loading...</p>
+          </div>
+        )}
         {status === 'Error' && (
           <div className="error">
             <p>
@@ -84,6 +106,7 @@ export default function Main() {
             handleClick={handleClick}
           />
         )}
+        {status === 'Help' && <HelpPanel toggleHelp={toggleHelp} />}
       </main>
     </>
   );
