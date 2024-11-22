@@ -51,14 +51,6 @@ export default function Main() {
     setData(newData);
   }
 
-  if (status === 'Error') {
-    return (
-      <div className="Error">
-        <p>Error fetching data. Please try again.</p>
-      </div>
-    );
-  }
-
   return (
     <>
       <header>
@@ -79,6 +71,13 @@ export default function Main() {
         )}
       </header>
       <main>
+        {status === 'Error' && (
+          <div className="error">
+            <p>
+              Error fetching data. Please reload the page or try again later.
+            </p>
+          </div>
+        )}
         {status === 'Loaded' && (
           <CardsWrapper
             data={data}

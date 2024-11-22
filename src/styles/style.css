@@ -89,3 +89,7 @@ header p {
 .golden {
   color: gold;
 }
+
+.error {
+  font-size: 3rem;
+}
