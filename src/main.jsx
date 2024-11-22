@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './styles/styles.css';
+import './styles/style.css';
 import './styles/reset.css';
 import GameScreen from './components/GameScreen';
 
