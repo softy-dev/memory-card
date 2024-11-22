@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import getData from '../utils/fetch';
 import shuffle from '../utils/shuffleArray';
-import Card from './Card';
 import logo from '../assets/dota2.png';
+import CardsWrapper from './CardsWrapper';
+import ScoreTracker from './ScoreTracker';
 
 export default function Main() {
   const [status, setStatus] = useState('Loading');
@@ -52,7 +53,7 @@ export default function Main() {
 
   if (status === 'Error') {
     return (
-      <div className="App">
+      <div className="Error">
         <p>Error fetching data. Please try again.</p>
       </div>
     );
@@ -71,32 +72,18 @@ export default function Main() {
           <h1>DOTA 2 Memory Cards</h1>
         </div>
         {status === 'Loaded' && (
-          <div className="score-wrapper">
-            <p>
-              <span className="bold">Best Score:</span>
-              <span className="golden"> {bestScore}</span>
-            </p>
-            <p>
-              <span className="bold">Score:</span> {score}/12
-            </p>
-          </div>
+          <ScoreTracker
+            bestScore={bestScore}
+            score={score}
+          />
         )}
       </header>
       <main>
         {status === 'Loaded' && (
-          <div className="cards-wrapper">
-            {data.map((character) => (
-              <article
-                key={character.id}
-                onClick={() => handleClick(character.id)}
-              >
-                <Card
-                  title={character.name}
-                  image={character.image}
-                />
-              </article>
-            ))}
-          </div>
+          <CardsWrapper
+            data={data}
+            handleClick={handleClick}
+          />
         )}
       </main>
     </>
